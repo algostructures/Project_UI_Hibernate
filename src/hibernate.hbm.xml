@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+   <class name="entities.Service" table="ServiceVehicle">
+      <meta attribute="class-description">
+         This class contains the Service detail.
+      </meta>
+      <id name="id" type="int" column="id">
+         <generator class="native"/>
+      </id>
+      <property name="vehicleModel" column="model" type="string"/>
+      <property name="odometer" column="odometer" type="int"/>
+      <property name="owner" column="owner" type="string"/>
+      <property name="free" column="ifFree" type="boolean"/>
+   </class>
+
+   <class name="entities.Admin" table="admin">
+      <meta attribute="class-description">
+         This class contains the admin detail.
+      </meta>
+      <id name="id" type="int" column="id">
+         <generator class="native"/>
+      </id>
+      <property name="password" column="password" type="string"/>
+      <property name="userName" column="username" type="string"/>
+   </class>
+
+   <class name="entities.Operator" table="operator">
+      <meta attribute="class-description">
+         This class contains the Operator detail.
+      </meta>
+      <id name="id" type="int" column="id">
+         <generator class="native"/>
+      </id>
+      <property name="password" column="password" type="string"/>
+      <property name="userName" column="username" type="string"/>
+      <property name="name" column="name" type="string"/>
+      <property name="blocked" column="isActive" type="boolean"/>
+   </class>
+
+   <class name="entities.SpareParts" table="Spareparts">
+      <meta attribute="class-description">
+         This class contains the SpareParts detail.
+      </meta>
+      <id name="id" type="int" column="id">
+         <generator class="native"/>
+      </id>
+      <property name="numbers" column="number" type="int"/>
+      <property name="price" column="price" type="double"/>
+      <property name="sparepart_ID" column="sparePartID" type="string" unique="true"/>
+      <property name="sparepartName" column="sparePartName" type="string" />
+      <property name="tax" column="tax" type="double"/>
+      <property name="vehicle_model" column="vehicleModel" type="string"/>
+   </class>
+
+   <class name="entities.Vehicle" table="Vehicle">
+      <meta attribute="class-description">
+         This class contains the Vehicle detail.
+      </meta>
+      <id name="id" type="int" column="id">
+         <generator class="native"/>
+      </id>
+      <property name="vehicle_model" column="vehicleModel" type="string"/>
+      <property name="tax" column="tax" type="double"/>
+      <property name="price" column="price" type="double"/>
+   </class>
+
+   <class name="entities.Orders" table="orders">
+      <meta attribute="class-description">
+         This class contains the Vehicle detail.
+      </meta>
+      <id name="id" type="int" column="id">
+         <generator class="native"/>
+      </id>
+      <property name="vehicleModel" column="vehicleModel" type="string"/>
+      <property name="price" column="price" type="double"/>
+      <property name="tax" column="tax" type="double"/>
+      <property name="numbers" column="numbers" type="int"/>
+      <property name="date" column="date" type="date"/>
+      <property name="operation" column="operation" type="string"/>
+      <property name="orderedBy" column="orderedBy" type="string"/>
+      <property name="sparePartId" column="sparePartId" type="string"/>
+      <property name="sparePartName" column="sparePartName" type="string"/>
+   </class>
+
+</hibernate-mapping>
